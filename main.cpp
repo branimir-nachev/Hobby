@@ -17,6 +17,8 @@ int main() {
         cout << "За ключ " << i << " записът е " << myMap[i] << endl;
     }
 
+    cout << endl;
+
     Person Branimir {"Бранимир","Начев"};
     Person Vania {"Ваня","Христова"};
     Person Vicky {"Виктория","Начева"};
