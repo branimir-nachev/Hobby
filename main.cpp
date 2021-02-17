@@ -17,5 +17,23 @@ int main() {
         cout << "За ключ " << i << " записът е " << myMap[i] << endl;
     }
 
+    Person Branimir {"Branimir","Nachev"};
+    Person Vania {"Vania","Hristova"};
+    Person Vicky {"Victoria","Nacheva"};
+
+    FamilyMember fBranimir {Branimir};
+    FamilyMember fVania {Vania};
+    FamilyMember fVicky {Vicky,&fVania,&fBranimir};
+
+    cout << "The parents of " << fVicky.getMember().getFullName() << " are : \n\tMother => " <<
+            fVicky.getMother()->getMember().getFullName() << "\n and \n\tFather => " <<
+            fVicky.getFather()->getMember().getFullName() << endl;
+
+    cout << fBranimir.getMember().getFullName() << " has child named : \n\t" <<
+            fBranimir.getChildrens().back()->getMember().getFullName() << endl;
+
+    cout << fVania.getMember().getFullName() << " has child named : \n\t" <<
+         fBranimir.getChildrens().back()->getMember().getFullName() << endl;
+
     return 0;
 }
