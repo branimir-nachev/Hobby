@@ -17,5 +17,13 @@ int main() {
         cout << "За ключ " << i << " записът е " << myMap[i] << endl;
     }
 
+    Person Branimir {"Branimir","Nachev"};
+    Person Vania {"Vania","Hristova"};
+    Person Vicky {"Victoria","Nacheva"};
+
+    FamilyMember fBranimir {Branimir};
+    FamilyMember fVania {Vania};
+    FamilyMember fVicky {Vicky,&fVania,&fBranimir};
+
     return 0;
 }

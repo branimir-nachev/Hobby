@@ -30,9 +30,9 @@ public:
 
     void setFather(FamilyMember *father);
 
-    const vector<FamilyMember *> &getChildrens() const;
+    void addChild(FamilyMember *child);
 
-    void setChildrens(const vector<FamilyMember *> &childrens);
+    const vector<FamilyMember *> &getChildrens() const;
 
     virtual ~FamilyMember();
 };
