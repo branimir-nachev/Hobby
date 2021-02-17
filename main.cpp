@@ -17,22 +17,22 @@ int main() {
         cout << "За ключ " << i << " записът е " << myMap[i] << endl;
     }
 
-    Person Branimir {"Branimir","Nachev"};
-    Person Vania {"Vania","Hristova"};
-    Person Vicky {"Victoria","Nacheva"};
+    Person Branimir {"Бранимир","Начев"};
+    Person Vania {"Ваня","Христова"};
+    Person Vicky {"Виктория","Начева"};
 
     FamilyMember fBranimir {Branimir};
     FamilyMember fVania {Vania};
     FamilyMember fVicky {Vicky,&fVania,&fBranimir};
 
-    cout << "The parents of " << fVicky.getMember().getFullName() << " are : \n\tMother => " <<
-            fVicky.getMother()->getMember().getFullName() << "\n and \n\tFather => " <<
+    cout << "Родители на " << fVicky.getMember().getFullName() << " са : \n\tМайка => " <<
+            fVicky.getMother()->getMember().getFullName() << "\n и \n\tБаща => " <<
             fVicky.getFather()->getMember().getFullName() << endl;
 
-    cout << fBranimir.getMember().getFullName() << " has child named : \n\t" <<
+    cout << fBranimir.getMember().getFullName() << " има дете на име : \n\t" <<
             fBranimir.getChildrens().back()->getMember().getFullName() << endl;
 
-    cout << fVania.getMember().getFullName() << " has child named : \n\t" <<
+    cout << fVania.getMember().getFullName() << " има дете на име : \n\t" <<
          fBranimir.getChildrens().back()->getMember().getFullName() << endl;
 
     return 0;
