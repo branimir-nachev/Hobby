@@ -19,20 +19,43 @@ int main() {
 
     cout << endl;
 
+    Person Petko {"Петко","Начев"};
+    Person Maria {"Мария","Начева"};
     Person Branimir {"Бранимир","Начев"};
     Person Vania {"Ваня","Христова"};
     Person Vicky {"Виктория","Начева"};
 
-    FamilyMember fBranimir {Branimir};
+    FamilyMember fPetko {Petko};
+    FamilyMember fMaria {Maria};
+    FamilyMember fBranimir {Branimir,&fMaria,&fPetko};
     FamilyMember fVania {Vania};
     FamilyMember fVicky {Vicky,&fVania,&fBranimir};
 
-    cout << "Родители на " << fVicky.getMember().getFullName() << " са : \n\tМайка => " <<
-            fVicky.getMother()->getMember().getFullName() << "\n и \n\tБаща => " <<
-            fVicky.getFather()->getMember().getFullName() << endl;
+    cout << "---------------------------------------------------" << endl;
+
+    cout << "Родители на " << fVicky.getMember().getFullName() <<
+            " са : \n\tМайка => " <<
+            fVicky.getMother()->getMember().getFullName() <<
+            "\n и \n\tБаща => " <<
+            fVicky.getFather()->getMember().getFullName() <<
+            endl << "баба и дядо са : " <<
+            "\n\t Баба => " <<
+            fVicky.getFather()->getMother()->getMember().getFullName() <<
+            "\n и \n\t Дядо => " <<
+            fVicky.getFather()->getFather()->getMember().getFullName() << endl;
+
+    cout << "---------------------------------------------------" << endl;
 
     cout << fBranimir.getMember().getFullName() << " има дете на име : \n\t" <<
             fBranimir.getChildrens().back()->getMember().getFullName() << endl;
+
+    cout << "Родители на " << fBranimir.getMember().getFullName() <<
+         " са : \n\tМайка => " <<
+         fBranimir.getMother()->getMember().getFullName() <<
+         "\n и \n\tБаща => " <<
+         fBranimir.getFather()->getMember().getFullName() << endl;
+
+    cout << "---------------------------------------------------" << endl;
 
     cout << fVania.getMember().getFullName() << " има дете на име : \n\t" <<
          fBranimir.getChildrens().back()->getMember().getFullName() << endl;
