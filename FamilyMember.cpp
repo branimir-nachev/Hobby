@@ -23,7 +23,10 @@ FamilyMember *FamilyMember::getMother() const {
 }
 
 void FamilyMember::setMother(FamilyMember *mother) {
-    FamilyMember::mother = mother;
+    if (mother){
+        FamilyMember::mother = mother;
+        FamilyMember::mother->addChild(this);
+    }
 }
 
 FamilyMember *FamilyMember::getFather() const {
@@ -31,7 +34,10 @@ FamilyMember *FamilyMember::getFather() const {
 }
 
 void FamilyMember::setFather(FamilyMember *father) {
-    FamilyMember::father = father;
+    if (father){
+        FamilyMember::father = father;
+        FamilyMember::father->addChild(this);
+    }
 }
 
 const Person &FamilyMember::getMember() const {

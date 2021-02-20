@@ -11,7 +11,7 @@
 using namespace std;
 
 class FamilyMember {
-protected:
+private:
     Person member;
     FamilyMember *mother;
     FamilyMember *father;
