@@ -2,9 +2,12 @@
 #include <vector>
 #include <map>
 #include <algorithm>
+#include <thread>
+#include <chrono>
 #include "FamilyMember.hpp"
 
 using namespace std;
+using namespace std::chrono_literals;
 
 int main() {
     std::cout << "Hello, World!" << std::endl;
@@ -18,6 +21,8 @@ int main() {
     }
 
     cout << endl;
+
+    auto start = chrono::high_resolution_clock::now();
 
     Person Petko{"Петко", "Начев"};
     Person Maria{"Мария", "Начева"};
@@ -74,6 +79,11 @@ int main() {
          fVania.getMother()->getMember().getFullName() <<
          "\n и \n\tБаща => " <<
          fVania.getFather()->getMember().getFullName() << endl;
+
+    auto end = chrono::high_resolution_clock::now();
+
+    chrono::duration<double,std::milli> duration = end - start;
+    cout << "\n\nВреме за итерациите : " << duration.count() << " ms" << endl;
 
     return 0;
 }
