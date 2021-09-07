@@ -24,27 +24,27 @@ int main() {
 
     auto start = chrono::high_resolution_clock::now();
 
-    Person Petko{ "Petko","Nachev" };
-    Person Maria{ "Maria","Nacheva" };
-    Person Jana{ "Snegana","Hristova" };
-    Person Ico{ "Hristo","Todorov" };
-    Person Branimir{ "Branimir","Nachev" };
-    Person Vania{ "Vania","Hristova" };
-    Person Vicky{ "Victoria","Nacheva" };
-    Person Margarita{"Margarita","Nacheva"};
-    Person Stefan{"Stefan","Nikolov"};
-    Person Volen{"Volen","Nikolov"};
+    Person Petko{"Petko", "Nachev"};
+    Person Maria{"Maria", "Nacheva"};
+    Person Jana{"Snegana", "Hristova"};
+    Person Ico{"Hristo", "Todorov"};
+    Person Branimir{"Branimir", "Nachev"};
+    Person Vania{"Vania", "Hristova"};
+    Person Vicky{"Victoria", "Nacheva"};
+    Person Margarita{"Margarita", "Nacheva"};
+    Person Stefan{"Stefan", "Nikolov"};
+    Person Volen{"Volen", "Nikolov"};
 
-    FamilyMember fPetko{ Petko };
-    FamilyMember fMaria{ Maria };
-    FamilyMember fJana{ Jana };
-    FamilyMember fIco{ Ico };
-    FamilyMember fBranimir{ Branimir,&fMaria,&fPetko };
-    FamilyMember fVania{ Vania,&fJana,&fIco };
-    FamilyMember fVicky{ Vicky,&fVania,&fBranimir };
-    FamilyMember fMargarita {Margarita,&fMaria,&fPetko};
-    FamilyMember fStefan{ Stefan,&fMaria,&fPetko };
-    FamilyMember fVolen (Volen,&fMargarita,&fStefan);
+    FamilyMember fPetko{Petko};
+    FamilyMember fMaria{Maria};
+    FamilyMember fJana{Jana};
+    FamilyMember fIco{Ico};
+    FamilyMember fBranimir{Branimir, &fMaria, &fPetko};
+    FamilyMember fVania{Vania, &fJana, &fIco};
+    FamilyMember fVicky{Vicky, &fVania, &fBranimir};
+    FamilyMember fMargarita{Margarita, &fMaria, &fPetko};
+    FamilyMember fStefan{Stefan, &fMaria, &fPetko};
+    FamilyMember fVolen(Volen, &fMargarita, &fStefan);
 
     cout << "---------------------------------------------------" << endl;
 
@@ -88,8 +88,7 @@ int main() {
 
     std::cout << "\nThe cildren of " << fMaria.getMember().getFullName() << " are : " << std::endl;
 
-    for (auto child : fMaria.getChildrens())
-    {
+    for (auto child: fMaria.getChildrens()) {
         std::cout << "\tChild : " << std::endl;
         std::cout << child->getMember().getFullName() << std::endl;
         std::cout << "\tHis child : \n" << child->getChildrens().back()->getMember().getFullName() << std::endl;
@@ -102,7 +101,7 @@ int main() {
 
     auto end = chrono::high_resolution_clock::now();
 
-    chrono::duration<double,std::milli> duration = end - start;
+    chrono::duration<double, std::milli> duration = end - start;
     cout << "\n\nTime for the iterations : " << duration.count() << " ms" << endl;
 
     return 0;
