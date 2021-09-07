@@ -43,7 +43,7 @@ int main() {
     FamilyMember fVania{Vania, &fJana, &fIco};
     FamilyMember fVicky{Vicky, &fVania, &fBranimir};
     FamilyMember fMargarita{Margarita, &fMaria, &fPetko};
-    FamilyMember fStefan{Stefan, &fMaria, &fPetko};
+    FamilyMember fStefan{Stefan, &fJana, &fIco};
     FamilyMember fVolen(Volen, &fMargarita, &fStefan);
 
     cout << "---------------------------------------------------" << endl;
